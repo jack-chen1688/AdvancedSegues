@@ -11,11 +11,13 @@ import UIKit
 class SecondViewController: UIViewController {
     
     var username = "Rob"
+    var activeRow = 0;
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print(username)
+        print(activeRow)
         // Do any additional setup after loading the view.
     }
 

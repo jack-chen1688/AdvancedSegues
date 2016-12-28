@@ -29,13 +29,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = "Hello"
+        cell.textLabel?.text = "Row \(indexPath.row)"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let activeRow = indexPath.row
         
-        performSegue(withIdentifier: "ToSecondViewController", sender: nil)
+        performSegue(withIdentifier: "ToSecondViewController", sender: activeRow)
         
     }
     
@@ -43,6 +44,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (segue.identifier == "ToSecondViewController") {
             let secondViewController = segue.destination as! SecondViewController
             secondViewController.username = "Kirsten"
+            secondViewController.activeRow = sender as! Int
         }
     }
 
